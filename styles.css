@@ -1,0 +1,141 @@
+/* ==========================================================
+   KRATOS FIT - Custom CSS & Micro-Interactions
+   Theme: Athletic Cyber-Dark & Crimson Glow (#ff2038)
+   ========================================================== */
+
+/* Custom Smooth Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #08090d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #242a38;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff2038;
+}
+
+/* Base Body Styles */
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(255, 32, 56, 0.25);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 32, 56, 0.55);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-pulseGlow {
+    animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* Selected States for Interactive Wizard */
+.muscle-btn.active {
+    border-color: #ff2038 !important;
+    background: linear-gradient(135deg, rgba(255, 32, 56, 0.15) 0%, rgba(22, 25, 34, 0.95) 100%) !important;
+    box-shadow: 0 0 20px rgba(255, 32, 56, 0.3) !important;
+    transform: translateY(-2px);
+}
+
+.muscle-btn.active .selection-check {
+    border-color: #ff2038 !important;
+    background-color: #ff2038 !important;
+    color: #ffffff !important;
+}
+
+.muscle-btn.active h4 {
+    color: #ffffff !important;
+}
+
+.pain-btn.active {
+    border-color: #ff2038 !important;
+    background: linear-gradient(135deg, rgba(255, 32, 56, 0.2) 0%, rgba(22, 25, 34, 0.95) 100%) !important;
+    box-shadow: 0 0 22px rgba(255, 32, 56, 0.35) !important;
+    transform: translateY(-2px);
+}
+
+.time-btn.active {
+    border-color: #ff2038 !important;
+    background: linear-gradient(135deg, rgba(255, 32, 56, 0.15) 0%, rgba(22, 25, 34, 0.95) 100%) !important;
+    box-shadow: 0 0 20px rgba(255, 32, 56, 0.3) !important;
+    transform: translateY(-2px);
+}
+
+.time-btn.active h4 {
+    color: #ff2038 !important;
+}
+
+/* Touch Ergonomics & Accessible Focus */
+button, a {
+    touch-action: manipulation;
+}
+
+button:focus-visible, a:focus-visible {
+    outline: 2px solid #ff2038;
+    outline-offset: 3px;
+}
+
+/* Glassmorphism Accents */
+.glass-panel {
+    background: rgba(22, 25, 34, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Print Optimization for Diagnostic Protocol */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+    
+    header, footer, #inicio, #solucoes, #seguranca, #sobre, #resetWizardBtn, #copyProtocolBtn {
+        display: none !important;
+    }
+
+    #diagnostico {
+        padding: 0 !important;
+        background: transparent !important;
+    }
+
+    #stepResult {
+        display: block !important;
+        color: #000000 !important;
+    }
+
+    #protocolCardsContainer > div {
+        background: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #000000 !important;
+    }
+}

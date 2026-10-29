@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kratos Fit | Prevenção e Alívio da Dor Muscular Tardia (DOMS)</title>
+    <meta name="description" content="Plataforma científica e interativa Kratos Fit para alívio, recuperação rápida e manejo inteligente da dor muscular pós-treino (DOMS).">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        kratos: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            500: '#ff2038',
+                            600: '#e60026',
+                            700: '#bd001f',
+                            glow: 'rgba(255, 32, 56, 0.45)',
+                            dark: '#08090d',
+                            surface: '#11131a',
+                            card: '#161922',
+                            border: '#242a38'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'kratos-glow': '0 0 25px rgba(255, 32, 56, 0.35)',
+                        'kratos-lg': '0 10px 40px -10px rgba(255, 32, 56, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-kratos-dark text-slate-200 font-sans antialiased selection:bg-kratos-600 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+
+    <!-- Background Atmospheric Glows -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-kratos-600/15 rounded-full blur-[140px] opacity-70"></div>
+        <div class="absolute top-[40%] -left-48 w-[500px] h-[500px] bg-kratos-600/10 rounded-full blur-[160px] opacity-50"></div>
+        <div class="absolute top-[75%] -right-48 w-[600px] h-[600px] bg-kratos-600/10 rounded-full blur-[180px] opacity-40"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(#1f2433_1px,transparent_1px)] [background-size:32px_32px] opacity-25"></div>
+    </div>
+
+    <!-- Top Announcement Bar -->
+    <div class="relative z-50 bg-gradient-to-r from-kratos-700 via-kratos-600 to-kratos-700 text-white text-xs md:text-sm py-2 px-4 text-center font-medium shadow-md flex items-center justify-center gap-2">
+        <span class="inline-flex items-center justify-center bg-black/25 px-2 py-0.5 rounded text-[11px] font-bold tracking-wider uppercase">Ciência & Performance</span>
+        <span>A dor pós-treino intensa tem protocolo científico. Não sofra à toa.</span>
+        <a href="#diagnostico" class="underline underline-offset-2 font-bold hover:text-slate-100 transition ml-1">Fazer Diagnóstico Gratuito &rarr;</a>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 backdrop-blur-xl bg-kratos-dark/85 border-b border-kratos-border transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                
+                <!-- Brand Identity (Official Logo + Stylized Typography) -->
+                <a href="#" class="flex items-center gap-3.5 group py-1 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-kratos-500 rounded-xl" aria-label="Kratos Fit - Página Inicial">
+                    <!-- Brand Official Logo Emblem -->
+                    <div class="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-kratos-card via-kratos-surface to-black p-2 border border-red-500/40 shadow-kratos-glow group-hover:border-kratos-500 group-hover:shadow-[0_0_25px_rgba(255,32,56,0.55)] group-hover:scale-105 transition-all duration-300">
+                        <img src="assets/logo-kratos-transparent.png" alt="Logotipo Oficial Kratos Fit" class="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(206,32,41,0.5)]">
+                    </div>
+
+                    <!-- Brand Stylized Text Directly Beside/Below -->
+                    <div class="flex flex-col">
+                        <span class="font-heading font-black text-2xl sm:text-[26px] tracking-wider text-white leading-tight flex items-center group-hover:text-red-400 transition-colors">
+                            KRATOS <span class="text-kratos-500 ml-1.5 group-hover:text-white transition-colors">FIT</span>
+                        </span>
+                        <span class="text-[9px] sm:text-[10px] tracking-[0.25em] text-slate-400 font-bold uppercase -mt-0.5">
+                            DOMS & Recovery Tech
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#inicio" class="text-slate-300 hover:text-white hover:text-kratos-500 transition py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-kratos-500 hover:after:w-full after:transition-all">Início</a>
+                    <a href="#diagnostico" class="text-slate-300 hover:text-white hover:text-kratos-500 transition py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-kratos-500 hover:after:w-full after:transition-all flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-kratos-500 animate-pulse"></span>
+                        Diagnóstico
+                    </a>
+                    <a href="#solucoes" class="text-slate-300 hover:text-white hover:text-kratos-500 transition py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-kratos-500 hover:after:w-full after:transition-all">Dicas de Recuperação</a>
+                    <a href="#seguranca" class="text-slate-300 hover:text-white hover:text-kratos-500 transition py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-kratos-500 hover:after:w-full after:transition-all">DOMS vs Lesão</a>
+                    <a href="#sobre" class="text-slate-300 hover:text-white hover:text-kratos-500 transition py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-kratos-500 hover:after:w-full after:transition-all">Sobre</a>
+                </nav>
+
+                <!-- Action Button in Header -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="#diagnostico" class="inline-flex items-center gap-2 bg-gradient-to-r from-kratos-600 to-kratos-500 hover:from-kratos-500 hover:to-red-500 text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl shadow-kratos-glow hover:shadow-kratos-lg hover:-translate-y-0.5 transition-all duration-200">
+                        <i data-lucide="activity" class="w-4 h-4"></i>
+                        <span>Avaliar Minha Dor</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden">
+                    <button type="button" id="mobileMenuBtn" aria-label="Abrir Menu" class="p-2.5 rounded-xl bg-kratos-card border border-kratos-border text-slate-300 hover:text-white hover:border-kratos-500 focus:outline-none">
+                        <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-kratos-border bg-kratos-surface/98 backdrop-blur-2xl px-6 py-6 space-y-4 shadow-2xl transition-all animate-fadeIn">
+            <div class="flex items-center gap-3 pb-3 border-b border-kratos-border/60">
+                <div class="w-10 h-10 rounded-xl bg-kratos-card border border-red-500/40 p-1.5 flex items-center justify-center">
+                    <img src="assets/logo-kratos-transparent.png" alt="Logotipo Kratos Fit" class="w-full h-full object-contain">
+                </div>
+                <div>
+                    <span class="font-heading font-black text-lg text-white">KRATOS <span class="text-kratos-500">FIT</span></span>
+                    <p class="text-[9px] uppercase tracking-wider text-slate-400 font-semibold">Recuperação & Performance</p>
+                </div>
+            </div>
+            <a href="#inicio" class="mobile-nav-link block text-base font-medium text-slate-200 hover:text-kratos-500 py-2">Início</a>
+            <a href="#diagnostico" class="mobile-nav-link flex items-center justify-between text-base font-semibold text-kratos-500 py-2">
+                <span>Diagnosticador de Dor (Kratos Recover)</span>
+                <span class="text-xs bg-kratos-600/20 border border-kratos-500/40 px-2 py-0.5 rounded-full">Interativo</span>
+            </a>
+            <a href="#solucoes" class="mobile-nav-link block text-base font-medium text-slate-200 hover:text-kratos-500 py-2">Guia de Soluções (O que fazer)</a>
+            <a href="#seguranca" class="mobile-nav-link block text-base font-medium text-slate-200 hover:text-kratos-500 py-2">Aviso de Saúde (DOMS vs Lesão)</a>
+            <a href="#sobre" class="mobile-nav-link block text-base font-medium text-slate-200 hover:text-kratos-500 py-2">Sobre a Kratos Fit</a>
+            <div class="pt-2">
+                <a href="#diagnostico" class="mobile-nav-link flex items-center justify-center gap-2 w-full bg-kratos-600 text-white font-bold py-3.5 rounded-xl shadow-kratos-glow">
+                    <i data-lucide="zap" class="w-4 h-4"></i>
+                    Começar Diagnóstico Agora
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow relative z-10">
+
+        <!-- ==============================================
+             HERO SECTION
+        =============================================== -->
+        <section id="inicio" class="pt-12 pb-20 md:pt-20 md:pb-32 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Left Column: Copy & CTAs -->
+                    <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                        
+                        <!-- Badge -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-kratos-card border border-kratos-border text-slate-300 text-xs font-semibold shadow-inner">
+                            <span class="w-2 h-2 rounded-full bg-kratos-500 shadow-[0_0_8px_#ff2038]"></span>
+                            <span>Manejo de Dor Muscular Tardia (DOMS)</span>
+                            <span class="bg-kratos-600/30 text-kratos-100 text-[10px] px-2 py-0.5 rounded font-mono font-bold">100% Baseado em Evidências</span>
+                        </div>
+
+                        <!-- Main Impactful Title -->
+                        <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12]">
+                            Aquelas dores pós-treino <br class="hidden sm:inline">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-kratos-500 to-rose-400">
+                                não precisam parar
+                            </span> a sua evolução.
+                        </h1>
+
+                        <!-- Subtitle -->
+                        <p class="text-slate-300 text-lg sm:text-xl font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            Na <strong>Kratos Fit</strong>, transformamos a resposta inflamatória natural do seu corpo em recuperação acelerada. Aprenda a aliviar a rigidez, desmistificar o pós-treino e voltar mais forte sem arriscar lesões.
+                        </p>
+
+                        <!-- Key Value Points -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 pb-2 text-left">
+                            <div class="flex items-center gap-2.5 p-3 rounded-xl bg-kratos-card/60 border border-kratos-border/80">
+                                <div class="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center text-kratos-500 shrink-0">
+                                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                                </div>
+                                <div class="text-xs">
+                                    <p class="font-bold text-white">Alívio Inteligente</p>
+                                    <p class="text-slate-400">Crioterapia, calor & fluxo</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2.5 p-3 rounded-xl bg-kratos-card/60 border border-kratos-border/80">
+                                <div class="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center text-kratos-500 shrink-0">
+                                    <i data-lucide="gauge" class="w-5 h-5"></i>
+                                </div>
+                                <div class="text-xs">
+                                    <p class="font-bold text-white">Diagnóstico Rápido</p>
+                                    <p class="text-slate-400">Protocolos em 3 passos</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2.5 p-3 rounded-xl bg-kratos-card/60 border border-kratos-border/80">
+                                <div class="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center text-kratos-500 shrink-0">
+                                    <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+                                </div>
+                                <div class="text-xs">
+                                    <p class="font-bold text-white">Segurança Médica</p>
+                                    <p class="text-slate-400">Diferencie dor de lesão</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main CTAs -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#diagnostico" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-kratos-600 to-kratos-500 hover:from-kratos-500 hover:to-red-500 text-white font-heading font-bold text-base px-8 py-4 rounded-xl shadow-kratos-glow hover:shadow-kratos-lg transition-all duration-300 transform hover:-translate-y-1">
+                                <span>Descobrir Como Aliviar Agora</span>
+                                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#solucoes" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-kratos-card hover:bg-kratos-surface text-slate-200 border border-kratos-border hover:border-slate-600 font-heading font-semibold text-base px-6 py-4 rounded-xl transition duration-200">
+                                <i data-lucide="book-open" class="w-5 h-5 text-kratos-500"></i>
+                                <span>Ver Guia Prático</span>
+                            </a>
+                        </div>
+
+                        <!-- Micro Social Proof / Context -->
+                        <div class="flex items-center justify-center lg:justify-start gap-3 text-xs text-slate-400 pt-3">
+                            <div class="flex -space-x-2">
+                                <div class="w-7 h-7 rounded-full bg-slate-700 border-2 border-kratos-dark flex items-center justify-center text-[10px] font-bold text-white">🏋️</div>
+                                <div class="w-7 h-7 rounded-full bg-kratos-700 border-2 border-kratos-dark flex items-center justify-center text-[10px] font-bold text-white">🏃</div>
+                                <div class="w-7 h-7 rounded-full bg-slate-800 border-2 border-kratos-dark flex items-center justify-center text-[10px] font-bold text-white">🚴</div>
+                            </div>
+                            <span>Criado para atletas, entusiastas da musculação e iniciantes no esporte.</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Interactive Visual Card Preview -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            
+                            <!-- Red Glow Effect -->
+                            <div class="absolute -inset-1 bg-gradient-to-r from-kratos-600 to-red-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+
+                            <!-- Dashboard Card -->
+                            <div class="relative bg-kratos-card border border-kratos-border rounded-2xl p-6 shadow-2xl backdrop-blur-sm space-y-6">
+                                
+                                <div class="flex items-center justify-between border-b border-kratos-border pb-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-kratos-surface border border-kratos-500/40 p-1.5 flex items-center justify-center">
+                                            <img src="assets/logo-kratos-transparent.png" alt="Kratos Fit Icon" class="w-full h-full object-contain">
+                                        </div>
+                                        <div>
+                                            <h3 class="font-heading font-bold text-white text-base">Kratos Recover™</h3>
+                                            <p class="text-xs text-slate-400">Algoritmo de Fisiologia Muscular</p>
+                                        </div>
+                                    </div>
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Ativo
+                                    </span>
+                                </div>
+
+                                <!-- Dynamic Preview Mini Status -->
+                                <div class="bg-kratos-surface/80 rounded-xl p-4 border border-kratos-border/60 space-y-3">
+                                    <div class="flex justify-between items-center text-xs">
+                                        <span class="text-slate-400">Ciclo da Dor Tardia (DOMS)</span>
+                                        <span class="text-kratos-500 font-bold">Fase de Pico (24h - 48h)</span>
+                                    </div>
+                                    <!-- Progress Bar of Muscle Soreness -->
+                                    <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden flex">
+                                        <div class="bg-blue-500 h-full w-[25%]" title="12h: Instalação"></div>
+                                        <div class="bg-kratos-500 h-full w-[50%]" title="24-48h: Pico"></div>
+                                        <div class="bg-emerald-500 h-full w-[25%]" title="72h+: Reparação"></div>
+                                    </div>
+                                    <div class="flex justify-between text-[10px] text-slate-500">
+                                        <span>0h Treino</span>
+                                        <span class="text-kratos-500 font-bold">Pico Inflamatório</span>
+                                        <span>72h Remissão</span>
+                                    </div>
+                                </div>
+
+                                <!-- Interactive Quick Snapshot Preview -->
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="p-3 rounded-xl bg-kratos-surface/60 border border-kratos-border/50">
+                                        <span class="text-[11px] text-slate-400 block mb-1">Causa Real:</span>
+                                        <p class="text-xs font-semibold text-white flex items-center gap-1.5">
+                                            <i data-lucide="microscope" class="w-3.5 h-3.5 text-kratos-500"></i>
+                                            Microlesões Miofibrilares
+                                        </p>
+                                        <p class="text-[10px] text-slate-500 mt-1">Não é acúmulo de ácido lático!</p>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-kratos-surface/60 border border-kratos-border/50">
+                                        <span class="text-[11px] text-slate-400 block mb-1">Ação Imediata:</span>
+                                        <p class="text-xs font-semibold text-emerald-400 flex items-center gap-1.5">
+                                            <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-400"></i>
+                                            Recuperação Ativa
+                                        </p>
+                                        <p class="text-[10px] text-slate-500 mt-1">Caminhada z1 & hidratação</p>
+                                    </div>
+                                </div>
+
+                                <a href="#diagnostico" class="block w-full text-center py-3 bg-kratos-surface hover:bg-kratos-600/20 text-kratos-500 hover:text-white border border-kratos-500/30 hover:border-kratos-500 rounded-xl text-xs font-bold transition">
+                                    Iniciar Wizard Personalizado &darr;
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             INTERACTIVE TOOL: KRATOS RECOVER DIAGNOSTICADOR
+        =============================================== -->
+        <section id="diagnostico" class="py-20 bg-gradient-to-b from-kratos-dark via-kratos-surface to-kratos-dark relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kratos-600/10 border border-kratos-500/30 text-kratos-500 text-xs font-bold tracking-wide uppercase">
+                        <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                        <span>Ferramenta Interativa Kratos Recover</span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white">
+                        Diagnosticador de Dor Muscular
+                    </h2>
+                    <p class="text-slate-400 text-base sm:text-lg">
+                        Selecione as variáveis do seu treino e receba instantaneamente o protocolo de alívio cientificamente validado para o seu caso.
+                    </p>
+                </div>
+
+                <!-- Wizard Container Card -->
+                <div class="bg-kratos-card border border-kratos-border rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden backdrop-blur-md" id="wizardCard">
+                    
+                    <!-- Progress Bar Header -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+                            <span id="stepIndicatorLabel">Passo 1 de 3: Grupo Muscular</span>
+                            <span id="stepPercentage" class="text-kratos-500">33%</span>
+                        </div>
+                        <div class="w-full bg-kratos-surface h-2 rounded-full overflow-hidden">
+                            <div id="stepProgressBar" class="bg-gradient-to-r from-red-600 to-kratos-500 h-full w-1/3 transition-all duration-500 ease-out"></div>
+                        </div>
+                    </div>
+
+                    <!-- WIZARD STEP 1: Grupo Muscular -->
+                    <div id="step1" class="wizard-step space-y-6">
+                        <div class="space-y-1">
+                            <h3 class="text-xl sm:text-2xl font-heading font-bold text-white flex items-center gap-2">
+                                <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-kratos-500 text-white text-xs font-black">1</span>
+                                Qual grupo muscular está dolorido?
+                            </h3>
+                            <p class="text-sm text-slate-400">Escolha a principal região afetada pelo esforço físico.</p>
+                        </div>
+
+                        <!-- Muscle Selection Grid -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4" id="muscleGrid">
+                            
+                            <!-- Pernas / Coxas -->
+                            <button type="button" data-muscle="pernas" class="muscle-btn group p-4 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-500 text-left transition duration-200 flex flex-col justify-between h-32 focus:outline-none">
+                                <div class="flex justify-between items-start">
+                                    <div class="w-10 h-10 rounded-xl bg-kratos-card flex items-center justify-center text-slate-300 group-hover:text-kratos-500 transition">
+                                        <i data-lucide="footprints" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="selection-check w-5 h-5 rounded-full border border-slate-600 flex items-center justify-center text-[10px] text-transparent group-hover:border-kratos-500 transition">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm group-hover:text-kratos-500 transition">Pernas & Coxas</h4>
+                                    <p class="text-[11px] text-slate-400">Quadríceps e Isquiotibiais</p>
+                                </div>
+                            </button>
+
+                            <!-- Costas -->
+                            <button type="button" data-muscle="costas" class="muscle-btn group p-4 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-500 text-left transition duration-200 flex flex-col justify-between h-32 focus:outline-none">
+                                <div class="flex justify-between items-start">
+                                    <div class="w-10 h-10 rounded-xl bg-kratos-card flex items-center justify-center text-slate-300 group-hover:text-kratos-500 transition">
+                                        <i data-lucide="shield" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="selection-check w-5 h-5 rounded-full border border-slate-600 flex items-center justify-center text-[10px] text-transparent group-hover:border-kratos-500 transition">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm group-hover:text-kratos-500 transition">Costas & Dorsal</h4>
+                                    <p class="text-[11px] text-slate-400">Lombar, Trapézio, Latíssimo</p>
+                                </div>
+                            </button>
+
+                            <!-- Peito e Ombros -->
+                            <button type="button" data-muscle="peito" class="muscle-btn group p-4 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-500 text-left transition duration-200 flex flex-col justify-between h-32 focus:outline-none">
+                                <div class="flex justify-between items-start">
+                                    <div class="w-10 h-10 rounded-xl bg-kratos-card flex items-center justify-center text-slate-300 group-hover:text-kratos-500 transition">
+                                        <i data-lucide="layers" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="selection-check w-5 h-5 rounded-full border border-slate-600 flex items-center justify-center text-[10px] text-transparent group-hover:border-kratos-500 transition">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm group-hover:text-kratos-500 transition">Peito & Ombros</h4>
+                                    <p class="text-[11px] text-slate-400">Peitoral Maior e Deltoides</p>
+                                </div>
+                            </button>
+
+                            <!-- Braços -->
+                            <button type="button" data-muscle="bracos" class="muscle-btn group p-4 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-500 text-left transition duration-200 flex flex-col justify-between h-32 focus:outline-none">
+                                <div class="flex justify-between items-start">
+                                    <div class="w-10 h-10 rounded-xl bg-kratos-card flex items-center justify-center text-slate-300 group-hover:text-kratos-500 transition">
+                                        <i data-lucide="biceps" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="selection-check w-5 h-5 rounded-full border border-slate-600 flex items-center justify-center text-[10px] text-transparent group-hover:border-kratos-500 transition">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm group-hover:text-kratos-500 transition">Braços</h4>
+                                    <p class="text-[11px] text-slate-400">Bíceps, Tríceps e Antebraço</p>
+                                </div>
+                            </button>
+
+                            <!-- Panturrilhas -->
+                            <button type="button" data-muscle="panturrilhas" class="muscle-btn group p-4 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-500 text-left transition duration-200 flex flex-col justify-between h-32 focus:outline-none">
+                                <div class="flex justify-between items-start">
+                                    <div class="w-10 h-10 rounded-xl bg-kratos-card flex items-center justify-center text-slate-300 group-hover:text-kratos-500 transition">
+                                        <i data-lucide="activity" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="selection-check w-5 h-5 rounded-full border border-slate-600 flex items-center justify-center text-[10px] text-transparent group-hover:border-kratos-500 transition">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm group-hover:text-kratos-500 transition">Panturrilhas</h4>
+                                    <p class="text-[11px] text-slate-400">Gastrocnêmio e Sóleo</p>
+                                </div>
+                            </button>
+
+                            <!-- Abdômen / Core -->
+                            <button type="button" data-muscle="abdomen" class="muscle-btn group p-4 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-500 text-left transition duration-200 flex flex-col justify-between h-32 focus:outline-none">
+                                <div class="flex justify-between items-start">
+                                    <div class="w-10 h-10 rounded-xl bg-kratos-card flex items-center justify-center text-slate-300 group-hover:text-kratos-500 transition">
+                                        <i data-lucide="compass" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="selection-check w-5 h-5 rounded-full border border-slate-600 flex items-center justify-center text-[10px] text-transparent group-hover:border-kratos-500 transition">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm group-hover:text-kratos-500 transition">Abdômen & Core</h4>
+                                    <p class="text-[11px] text-slate-400">Reto abdominal e oblíquos</p>
+                                </div>
+                            </button>
+
+                            <!-- Glúteos -->
+                            <button type="button" data-muscle="gluteos" class="muscle-btn group p-4 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-500 text-left transition duration-200 flex flex-col justify-between h-32 focus:outline-none">
+                                <div class="flex justify-between items-start">
+                                    <div class="w-10 h-10 rounded-xl bg-kratos-card flex items-center justify-center text-slate-300 group-hover:text-kratos-500 transition">
+                                        <i data-lucide="target" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="selection-check w-5 h-5 rounded-full border border-slate-600 flex items-center justify-center text-[10px] text-transparent group-hover:border-kratos-500 transition">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm group-hover:text-kratos-500 transition">Glúteos & Pelve</h4>
+                                    <p class="text-[11px] text-slate-400">Glúteo Máximo e Médio</p>
+                                </div>
+                            </button>
+
+                            <!-- Corpo Inteiro (Geral) -->
+                            <button type="button" data-muscle="geral" class="muscle-btn group p-4 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-500 text-left transition duration-200 flex flex-col justify-between h-32 focus:outline-none">
+                                <div class="flex justify-between items-start">
+                                    <div class="w-10 h-10 rounded-xl bg-kratos-card flex items-center justify-center text-slate-300 group-hover:text-kratos-500 transition">
+                                        <i data-lucide="flame" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="selection-check w-5 h-5 rounded-full border border-slate-600 flex items-center justify-center text-[10px] text-transparent group-hover:border-kratos-500 transition">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm group-hover:text-kratos-500 transition">Corpo Inteiro</h4>
+                                    <p class="text-[11px] text-slate-400">Treino metabólico / Fullbody</p>
+                                </div>
+                            </button>
+
+                        </div>
+
+                        <!-- Step 1 Controls -->
+                        <div class="flex justify-end pt-4">
+                            <button type="button" id="nextToStep2" disabled class="btn-primary-kratos inline-flex items-center gap-2 bg-kratos-600 hover:bg-kratos-500 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold text-sm px-7 py-3.5 rounded-xl transition shadow-kratos-glow">
+                                <span>Avançar para Nível de Dor</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- WIZARD STEP 2: Nível da Dor (1 a 5) -->
+                    <div id="step2" class="wizard-step hidden space-y-6">
+                        <div class="space-y-1">
+                            <h3 class="text-xl sm:text-2xl font-heading font-bold text-white flex items-center gap-2">
+                                <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-kratos-500 text-white text-xs font-black">2</span>
+                                Qual a intensidade da sua dor neste momento?
+                            </h3>
+                            <p class="text-sm text-slate-400">Escala de desconforto de 1 a 5 com base na sua mobilidade.</p>
+                        </div>
+
+                        <!-- Pain Level Cards -->
+                        <div class="grid grid-cols-1 sm:grid-cols-5 gap-3" id="painLevelsGrid">
+                            
+                            <!-- Nível 1 -->
+                            <button type="button" data-pain="1" class="pain-btn p-4 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-emerald-500 text-center transition flex flex-col items-center justify-between min-h-[140px] focus:outline-none">
+                                <span class="text-2xl font-black text-emerald-400">1</span>
+                                <div>
+                                    <h5 class="text-xs font-bold text-white uppercase tracking-wider">Leve</h5>
+                                    <p class="text-[11px] text-slate-400 mt-1">Apenas sinto o músculo quando contraio.</p>
+                                </div>
+                                <span class="text-[10px] text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full">Mobilidade 100%</span>
+                            </button>
+
+                            <!-- Nível 2 -->
+                            <button type="button" data-pain="2" class="pain-btn p-4 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-cyan-500 text-center transition flex flex-col items-center justify-between min-h-[140px] focus:outline-none">
+                                <span class="text-2xl font-black text-cyan-400">2</span>
+                                <div>
+                                    <h5 class="text-xs font-bold text-white uppercase tracking-wider">Moderada Leve</h5>
+                                    <p class="text-[11px] text-slate-400 mt-1">Sensação de peso e rigidez matinal.</p>
+                                </div>
+                                <span class="text-[10px] text-cyan-400 font-semibold bg-cyan-500/10 px-2 py-0.5 rounded-full">Incômodo suave</span>
+                            </button>
+
+                            <!-- Nível 3 (Padrão DOMS) -->
+                            <button type="button" data-pain="3" class="pain-btn p-4 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-amber-500 text-center transition flex flex-col items-center justify-between min-h-[140px] focus:outline-none">
+                                <span class="text-2xl font-black text-amber-400">3</span>
+                                <div>
+                                    <h5 class="text-xs font-bold text-white uppercase tracking-wider">Marcada (DOMS)</h5>
+                                    <p class="text-[11px] text-slate-400 mt-1">Dói ao sentar/levantar ou esticar.</p>
+                                </div>
+                                <span class="text-[10px] text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full">Pico normal</span>
+                            </button>
+
+                            <!-- Nível 4 -->
+                            <button type="button" data-pain="4" class="pain-btn p-4 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-orange-500 text-center transition flex flex-col items-center justify-between min-h-[140px] focus:outline-none">
+                                <span class="text-2xl font-black text-orange-400">4</span>
+                                <div>
+                                    <h5 class="text-xs font-bold text-white uppercase tracking-wider">Severa</h5>
+                                    <p class="text-[11px] text-slate-400 mt-1">Ando com dificuldade, músculo muito tenso.</p>
+                                </div>
+                                <span class="text-[10px] text-orange-400 font-semibold bg-orange-500/10 px-2 py-0.5 rounded-full">Limitação real</span>
+                            </button>
+
+                            <!-- Nível 5 (Alerta) -->
+                            <button type="button" data-pain="5" class="pain-btn p-4 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-500 text-center transition flex flex-col items-center justify-between min-h-[140px] focus:outline-none">
+                                <span class="text-2xl font-black text-kratos-500">5</span>
+                                <div>
+                                    <h5 class="text-xs font-bold text-white uppercase tracking-wider">Extrema</h5>
+                                    <p class="text-[11px] text-slate-400 mt-1">Dor aguda, fisgada ou não consigo mover.</p>
+                                </div>
+                                <span class="text-[10px] text-kratos-500 font-semibold bg-red-500/10 px-2 py-0.5 rounded-full">Atenção Médica</span>
+                            </button>
+
+                        </div>
+
+                        <!-- Step 2 Controls -->
+                        <div class="flex justify-between items-center pt-4">
+                            <button type="button" id="prevToStep1" class="text-slate-400 hover:text-white text-sm font-semibold inline-flex items-center gap-1.5 transition">
+                                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                                <span>Voltar</span>
+                            </button>
+                            <button type="button" id="nextToStep3" disabled class="inline-flex items-center gap-2 bg-kratos-600 hover:bg-kratos-500 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold text-sm px-7 py-3.5 rounded-xl transition shadow-kratos-glow">
+                                <span>Avançar para Tempo Pós-Treino</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- WIZARD STEP 3: Tempo Decorrido desde o Treino -->
+                    <div id="step3" class="wizard-step hidden space-y-6">
+                        <div class="space-y-1">
+                            <h3 class="text-xl sm:text-2xl font-heading font-bold text-white flex items-center gap-2">
+                                <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-kratos-500 text-white text-xs font-black">3</span>
+                                Quanto tempo se passou desde o esforço físico?
+                            </h3>
+                            <p class="text-sm text-slate-400">O tempo decorrido determina se você deve aplicar frio, calor ou movimento ativo.</p>
+                        </div>
+
+                        <!-- Time Options -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="timeGrid">
+                            
+                            <!-- < 12h -->
+                            <button type="button" data-time="12" class="time-btn group p-5 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-500 text-left transition duration-200 flex flex-col justify-between h-36 focus:outline-none">
+                                <div class="flex justify-between items-start">
+                                    <span class="w-9 h-9 rounded-xl bg-kratos-card flex items-center justify-center text-slate-300 group-hover:text-kratos-500 font-bold text-sm">
+                                        &lt;12h
+                                    </span>
+                                    <span class="text-[10px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded">Fase Inicial</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm group-hover:text-kratos-500 transition">Menos de 12 horas</h4>
+                                    <p class="text-[11px] text-slate-400 mt-1">Fadiga imediata, início da quebra tecidual e acúmulo de citocinas.</p>
+                                </div>
+                            </button>
+
+                            <!-- ~24h -->
+                            <button type="button" data-time="24" class="time-btn group p-5 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-500 text-left transition duration-200 flex flex-col justify-between h-36 focus:outline-none">
+                                <div class="flex justify-between items-start">
+                                    <span class="w-9 h-9 rounded-xl bg-kratos-card flex items-center justify-center text-slate-300 group-hover:text-kratos-500 font-bold text-sm">
+                                        24h
+                                    </span>
+                                    <span class="text-[10px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">Dia Seguinte</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm group-hover:text-kratos-500 transition">Aproximadamente 24h</h4>
+                                    <p class="text-[11px] text-slate-400 mt-1">Sensação clássica de dor muscular tardia se instalando firmemente.</p>
+                                </div>
+                            </button>
+
+                            <!-- ~48h -->
+                            <button type="button" data-time="48" class="time-btn group p-5 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-500 text-left transition duration-200 flex flex-col justify-between h-36 focus:outline-none">
+                                <div class="flex justify-between items-start">
+                                    <span class="w-9 h-9 rounded-xl bg-kratos-card flex items-center justify-center text-slate-300 group-hover:text-kratos-500 font-bold text-sm">
+                                        48h
+                                    </span>
+                                    <span class="text-[10px] text-kratos-500 bg-red-500/10 px-2 py-0.5 rounded font-bold">Pico Máximo</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm group-hover:text-kratos-500 transition">Aproximadamente 48h</h4>
+                                    <p class="text-[11px] text-slate-400 mt-1">Ponto ápice de inflamação regenerativa saudável do músculo.</p>
+                                </div>
+                            </button>
+
+                            <!-- 72h+ -->
+                            <button type="button" data-time="72" class="time-btn group p-5 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-500 text-left transition duration-200 flex flex-col justify-between h-36 focus:outline-none">
+                                <div class="flex justify-between items-start">
+                                    <span class="w-9 h-9 rounded-xl bg-kratos-card flex items-center justify-center text-slate-300 group-hover:text-kratos-500 font-bold text-sm">
+                                        72h+
+                                    </span>
+                                    <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Resolução</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm group-hover:text-kratos-500 transition">72 horas ou mais</h4>
+                                    <p class="text-[11px] text-slate-400 mt-1">A dor deveria estar diminuindo e o tecido em reconstrução supercompensatória.</p>
+                                </div>
+                            </button>
+
+                        </div>
+
+                        <!-- Step 3 Controls -->
+                        <div class="flex justify-between items-center pt-4">
+                            <button type="button" id="prevToStep2" class="text-slate-400 hover:text-white text-sm font-semibold inline-flex items-center gap-1.5 transition">
+                                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                                <span>Voltar</span>
+                            </button>
+                            <button type="button" id="generateProtocolBtn" disabled class="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-kratos-500 hover:from-kratos-500 hover:to-red-500 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold text-sm px-8 py-3.5 rounded-xl transition shadow-kratos-glow">
+                                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                <span>Gerar Meu Protocolo Kratos</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- WIZARD STEP 4: RESULTADO INSTANTÂNEO & PROTOCOLO -->
+                    <div id="stepResult" class="wizard-step hidden space-y-8 animate-fadeIn">
+                        
+                        <!-- Header of Result -->
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-5 rounded-2xl bg-gradient-to-r from-kratos-surface to-kratos-card border border-kratos-border">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Diagnóstico Concluído</span>
+                                </div>
+                                <h3 class="text-2xl font-heading font-black text-white" id="resultMuscleTitle">
+                                    Protocolo Personalizado: Pernas & Coxas
+                                </h3>
+                                <p class="text-xs text-slate-400 mt-1" id="resultParametersSummary">
+                                    Intensidade: Moderada (Nível 3) • Tempo pós-treino: 48h
+                                </p>
+                            </div>
+                            
+                            <div class="flex items-center gap-2 shrink-0">
+                                <button type="button" id="resetWizardBtn" class="px-4 py-2 text-xs font-bold text-slate-300 hover:text-white bg-kratos-surface border border-kratos-border hover:border-slate-500 rounded-xl transition flex items-center gap-1.5">
+                                    <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                                    <span>Recalcular</span>
+                                </button>
+                                <button type="button" id="copyProtocolBtn" class="px-4 py-2 text-xs font-bold text-white bg-kratos-600 hover:bg-kratos-500 rounded-xl transition flex items-center gap-1.5 shadow-kratos-glow">
+                                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                    <span id="copyBtnText">Copiar Plano</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Alert Box (Shown conditionally if pain is level 5 or 72h+ anomalous) -->
+                        <div id="resultSafetyAlert" class="hidden p-4 rounded-2xl bg-amber-500/10 border border-amber-500/40 text-amber-200 text-sm flex items-start gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong class="font-bold text-white block">Nota de Atenção Clínica:</strong>
+                                <span id="resultSafetyAlertText">Sua dor está em nível máximo ou dura mais de 72h sem alívio. Monitore sinais de edema e consulte um médico se houver perda de mobilidade motora.</span>
+                            </div>
+                        </div>
+
+                        <!-- 4 Pillars Protocol Cards Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="protocolCardsContainer">
+                            
+                            <!-- Card 1: Temperatura (Crio / Termo) -->
+                            <div class="p-5 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-border/80 transition space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2.5">
+                                        <div class="w-9 h-9 rounded-xl bg-blue-500/10 text-cyan-400 flex items-center justify-center">
+                                            <i data-lucide="thermometer-snowflake" id="tempIcon" class="w-5 h-5"></i>
+                                        </div>
+                                        <h4 class="font-heading font-bold text-white text-base">Terapia Térmica</h4>
+                                    </div>
+                                    <span id="tempBadge" class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Termoterapia / Calor</span>
+                                </div>
+                                <p class="text-xs text-slate-300 leading-relaxed" id="tempAdviceText">
+                                    Aplique compressa morna por 15 a 20 minutos. O calor dilata os vasos periféricos, acelerando a drenagem de resíduos inflamatórios e relaxando a musculatura contraída.
+                                </p>
+                                <div class="text-[11px] text-slate-400 bg-kratos-card p-2.5 rounded-lg border border-kratos-border/50 flex items-center gap-2">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5 text-slate-400"></i>
+                                    <span id="tempDuration">Duração sugerida: 15-20 min • 2x ao dia</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: Recuperação Ativa (Movimento) -->
+                            <div class="p-5 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-border/80 transition space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2.5">
+                                        <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                                            <i data-lucide="footprints" class="w-5 h-5"></i>
+                                        </div>
+                                        <h4 class="font-heading font-bold text-white text-base">Recuperação Ativa</h4>
+                                    </div>
+                                    <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Sem Carga</span>
+                                </div>
+                                <p class="text-xs text-slate-300 leading-relaxed" id="activeRecoveryText">
+                                    Realize 20 a 30 minutos de caminhada leve ou bicicleta ergométrica em zona 1 (baixa frequência). O bombeamento vascular mecânico limpa metabólitos sem causar novas lesões.
+                                </p>
+                                <div class="text-[11px] text-slate-400 bg-kratos-card p-2.5 rounded-lg border border-kratos-border/50 flex items-center gap-2">
+                                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                    <span id="activeRecoveryGoal">Meta: Aumentar circulação periférica em 40%</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 3: Mobilidade & Liberação Miofascial -->
+                            <div class="p-5 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-border/80 transition space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2.5">
+                                        <div class="w-9 h-9 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                                            <i data-lucide="activity" class="w-5 h-5"></i>
+                                        </div>
+                                        <h4 class="font-heading font-bold text-white text-base">Mobilidade & Fáscia</h4>
+                                    </div>
+                                    <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Gentil / Suave</span>
+                                </div>
+                                <p class="text-xs text-slate-300 leading-relaxed" id="myofascialText">
+                                    Uso de rolo de liberação (foam roller) ou massagem com pressão leve a moderada por 60 segundos por feixe muscular. Evite pressões pontuais dolorosas que ativem o reflexo miotático.
+                                </p>
+                                <div class="text-[11px] text-slate-400 bg-kratos-card p-2.5 rounded-lg border border-kratos-border/50 flex items-center gap-2">
+                                    <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-purple-400"></i>
+                                    <span>Não force alongamentos máximos em músculo inflamado</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 4: Hidratação, Nutrição & Sono -->
+                            <div class="p-5 rounded-2xl bg-kratos-surface border border-kratos-border hover:border-kratos-border/80 transition space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2.5">
+                                        <div class="w-9 h-9 rounded-xl bg-kratos-500/10 text-kratos-500 flex items-center justify-center">
+                                            <i data-lucide="droplet" class="w-5 h-5"></i>
+                                        </div>
+                                        <h4 class="font-heading font-bold text-white text-base">Reparação Bioquímica</h4>
+                                    </div>
+                                    <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-kratos-600/10 text-kratos-500 border border-kratos-500/20">Eletrólitos + Sono</span>
+                                </div>
+                                <p class="text-xs text-slate-300 leading-relaxed" id="nutritionText">
+                                    Consuma 35 a 45 ml de água por kg de peso corporal, associada a sódio e magnésio. Garanta 20-30g de proteína de alto valor biológico e priorize 8 horas de sono contínuo para pico de GH.
+                                </p>
+                                <div class="text-[11px] text-slate-400 bg-kratos-card p-2.5 rounded-lg border border-kratos-border/50 flex items-center gap-2">
+                                    <i data-lucide="moon" class="w-3.5 h-3.5 text-kratos-500"></i>
+                                    <span>Sono profundo = 95% da síntese tecidual reparadora</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Direct Recommendation Note -->
+                        <div class="p-4 rounded-xl bg-kratos-surface/50 border border-dashed border-kratos-border text-center text-xs text-slate-400">
+                            💡 Salve ou tire um print deste protocolo. O protocolo Kratos é dinâmico e pode ser refeito sempre que treinar um novo grupo muscular.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==============================================
+             GUIA PRÁTICO DE SOLUÇÕES (GRID: FAZER VS EVITAR)
+        =============================================== -->
+        <section id="solucoes" class="py-20 bg-kratos-dark relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kratos-card border border-kratos-border text-xs font-semibold text-slate-300">
+                        <i data-lucide="check-check" class="w-3.5 h-3.5 text-kratos-500"></i>
+                        <span>Manual Científico Kratos Fit</span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-white">
+                        Guia Prático: O Que Fazer e O Que Evitar
+                    </h2>
+                    <p class="text-slate-400 text-base sm:text-lg">
+                        Muitos costumes populares pioram a recuperação ou anulam os ganhos de hipertrofia. Siga a ciência da regeneração tecidual.
+                    </p>
+                </div>
+
+                <!-- 2-Column High Contrast Comparison Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <!-- COLUMN 1: BOAS PRÁTICAS (O QUE FAZER) -->
+                    <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-kratos-card to-kratos-surface border border-emerald-500/30 shadow-xl space-y-6 relative overflow-hidden">
+                        <div class="flex items-center gap-3 border-b border-kratos-border pb-4">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                                <i data-lucide="thumbs-up" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-xl text-white flex items-center gap-2">
+                                    Boas Práticas Validadas
+                                </h3>
+                                <p class="text-xs text-emerald-400 font-medium">Aceleradores biológicos da recuperação muscular</p>
+                            </div>
+                        </div>
+
+                        <!-- Items of What To Do -->
+                        <div class="space-y-4">
+                            
+                            <!-- Item 1 -->
+                            <div class="p-4 rounded-2xl bg-kratos-surface/80 border border-kratos-border/60 hover:border-emerald-500/40 transition">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                                        <i data-lucide="activity" class="w-4 h-4"></i>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <h4 class="font-heading font-bold text-white text-sm">Recuperação Ativa (Active Recovery)</h4>
+                                        <p class="text-xs text-slate-300 leading-relaxed">
+                                            Caminhadas, ciclismo leve ou natação moderada aumentam o débito cardíaco sem sobrecarga excêntrica. O fluxo sanguíneo renovado entrega aminoácidos e remove o exsudato inflamatório intersticial.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="p-4 rounded-2xl bg-kratos-surface/80 border border-kratos-border/60 hover:border-emerald-500/40 transition">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                                        <i data-lucide="hand" class="w-4 h-4"></i>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <h4 class="font-heading font-bold text-white text-sm">Massagem e Liberação Miofascial</h4>
+                                        <p class="text-xs text-slate-300 leading-relaxed">
+                                            Pressão controlada sobre o rolo de espuma ou massagem terapêutica estimula mecanorreceptores e diminui a hiperalgesia neural, proporcionando sensação perceptível de relaxamento e menor rigidez articular.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="p-4 rounded-2xl bg-kratos-surface/80 border border-kratos-border/60 hover:border-emerald-500/40 transition">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                                        <i data-lucide="utensils" class="w-4 h-4"></i>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <h4 class="font-heading font-bold text-white text-sm">Nutrição Reparadora & Eletrólitos</h4>
+                                        <p class="text-xs text-slate-300 leading-relaxed">
+                                            Ingestão fracionada de proteínas ricas em leucina (1.6g a 2.2g por kg de peso corporal ao dia) para síntese proteica miofibrilar, além de manter hidratação celular contínua com sódio e potássio.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div class="p-4 rounded-2xl bg-kratos-surface/80 border border-kratos-border/60 hover:border-emerald-500/40 transition">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                                        <i data-lucide="moon" class="w-4 h-4"></i>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <h4 class="font-heading font-bold text-white text-sm">Sono Anabólico de Alta Qualidade</h4>
+                                        <p class="text-xs text-slate-300 leading-relaxed">
+                                            O sono de ondas lentas (fase profunda N3) é o período exclusivo onde ocorre a maior liberação do hormônio do crescimento (GH) e reparação do citoesqueleto muscular. Mantenha o quarto escuro e fresco.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- COLUMN 2: O QUE EVITAR (ERROS CRÍTICOS) -->
+                    <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-kratos-card to-kratos-surface border border-kratos-600/40 shadow-xl space-y-6 relative overflow-hidden">
+                        <div class="flex items-center gap-3 border-b border-kratos-border pb-4">
+                            <div class="w-10 h-10 rounded-xl bg-kratos-600/20 border border-kratos-500/40 flex items-center justify-center text-kratos-500">
+                                <i data-lucide="ban" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-xl text-white flex items-center gap-2">
+                                    A Evitar a Todo Custo
+                                </h3>
+                                <p class="text-xs text-kratos-500 font-medium">Erros que atrasam a recuperação e sabotam seus ganhos</p>
+                            </div>
+                        </div>
+
+                        <!-- Items of What To Avoid -->
+                        <div class="space-y-4">
+                            
+                            <!-- Item 1 -->
+                            <div class="p-4 rounded-2xl bg-kratos-surface/80 border border-kratos-border/60 hover:border-kratos-500/40 transition">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-7 h-7 rounded-lg bg-red-500/20 text-kratos-500 flex items-center justify-center shrink-0 mt-0.5">
+                                        <i data-lucide="dumbbell" class="w-4 h-4"></i>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <h4 class="font-heading font-bold text-white text-sm">Treinar Pesado na Mesma Musculatura</h4>
+                                        <p class="text-xs text-slate-300 leading-relaxed">
+                                            Forçar cargas altas enquanto os sarcômeros ainda estão fraturados interrompe o processo inflamatório saudável e eleva em até 4x o risco de distensão ou avulsão tendínea.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="p-4 rounded-2xl bg-kratos-surface/80 border border-kratos-border/60 hover:border-kratos-500/40 transition">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-7 h-7 rounded-lg bg-red-500/20 text-kratos-500 flex items-center justify-center shrink-0 mt-0.5">
+                                        <i data-lucide="pill" class="w-4 h-4"></i>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <h4 class="font-heading font-bold text-white text-sm">Automedicação com Anti-inflamatórios (AINEs)</h4>
+                                        <p class="text-xs text-slate-300 leading-relaxed">
+                                            O uso indiscriminado de Ibuprofeno, Cetoprofeno ou Nimesulida bloqueia as enzimas COX-2, que são fundamentais para o recrutamento de células-satélite e ganho real de hipertrofia.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="p-4 rounded-2xl bg-kratos-surface/80 border border-kratos-border/60 hover:border-kratos-500/40 transition">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-7 h-7 rounded-lg bg-red-500/20 text-kratos-500 flex items-center justify-center shrink-0 mt-0.5">
+                                        <i data-lucide="bed" class="w-4 h-4"></i>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <h4 class="font-heading font-bold text-white text-sm">Imobilidade Total / Repouso Absoluto</h4>
+                                        <p class="text-xs text-slate-300 leading-relaxed">
+                                            Passar o dia inteiro deitado no sofá estagna a linfa e a circulação venosa, prolongando a sensação de "trava" e endurecimento muscular que você sente ao tentar se levantar.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div class="p-4 rounded-2xl bg-kratos-surface/80 border border-kratos-border/60 hover:border-kratos-500/40 transition">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-7 h-7 rounded-lg bg-red-500/20 text-kratos-500 flex items-center justify-center shrink-0 mt-0.5">
+                                        <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <h4 class="font-heading font-bold text-white text-sm">Alongamentos Balísticos ou Agressivos</h4>
+                                        <p class="text-xs text-slate-300 leading-relaxed">
+                                            Puxar um músculo com dor aguda até o limite mecânico não solta o músculo: rompe mais fibras fragilizadas e ativa o fuso neuromuscular, aumentando a contração protetora involuntária.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==============================================
+             AVISO DE SAÚDE E SEGURANÇA (DOMS VS LESÃO)
+        =============================================== -->
+        <section id="seguranca" class="py-20 bg-gradient-to-b from-kratos-dark via-kratos-surface to-kratos-dark relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Main Safety Callout Card -->
+                <div class="relative rounded-3xl bg-kratos-card border-2 border-kratos-600/50 p-6 sm:p-10 shadow-2xl overflow-hidden">
+                    
+                    <!-- Top Ribbon -->
+                    <div class="absolute -top-1 right-8 bg-gradient-to-r from-red-600 to-kratos-500 text-white font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-b-xl shadow-md">
+                        Protocolo de Segurança Médica
+                    </div>
+
+                    <!-- Header -->
+                    <div class="max-w-3xl mb-8 space-y-3">
+                        <div class="inline-flex items-center gap-2 text-kratos-500 font-bold text-xs uppercase tracking-wider">
+                            <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                            <span>Segurança do Praticante</span>
+                        </div>
+                        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-white">
+                            Você está com Dor Tardia (DOMS) ou com uma Lesão Real?
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            A dor muscular tardia é uma adaptação fisiológica benigna e temporária. Uma lesão muscular (estiramento, ruptura ou tendinite) requer diagnóstico médico imediato. Use o comparativo abaixo:
+                        </p>
+                    </div>
+
+                    <!-- Interactive Comparison Table / Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        
+                        <!-- Col 1: DOMS (Normal) -->
+                        <div class="p-5 sm:p-6 rounded-2xl bg-kratos-surface border border-emerald-500/30 space-y-4">
+                            <div class="flex items-center justify-between border-b border-kratos-border pb-3">
+                                <span class="font-heading font-bold text-lg text-emerald-400 flex items-center gap-2">
+                                    <i data-lucide="check-circle" class="w-5 h-5"></i>
+                                    DOMS (Dor Tardia Saudável)
+                                </span>
+                                <span class="text-xs bg-emerald-500/10 text-emerald-400 font-bold px-2 py-0.5 rounded">Evolução Normal</span>
+                            </div>
+                            <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-emerald-400 font-bold mt-0.5">●</span>
+                                    <span><strong>Início gradual:</strong> Aparece de 12 a 24 horas após o treino, atingindo o pico entre 24 e 48 horas.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-emerald-400 font-bold mt-0.5">●</span>
+                                    <span><strong>Sensação difusa:</strong> Sensação de peso, queimação suave ao mover ou rigidez em todo o ventre muscular.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-emerald-400 font-bold mt-0.5">●</span>
+                                    <span><strong>Simetria:</strong> Geralmente afeta ambos os lados do corpo igualmente (ambas as coxas ou ambos os braços).</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-emerald-400 font-bold mt-0.5">●</span>
+                                    <span><strong>Melhora ao aquecer:</strong> Conforme o corpo esquenta e você caminha, a rigidez diminui sensivelmente.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 2: Lesão (Perigo) -->
+                        <div class="p-5 sm:p-6 rounded-2xl bg-kratos-surface border border-red-500/50 space-y-4">
+                            <div class="flex items-center justify-between border-b border-kratos-border pb-3">
+                                <span class="font-heading font-bold text-lg text-kratos-500 flex items-center gap-2">
+                                    <i data-lucide="alert-octagon" class="w-5 h-5"></i>
+                                    Lesão Muscular ou Tendínea
+                                </span>
+                                <span class="text-xs bg-red-500/15 text-kratos-500 font-bold px-2 py-0.5 rounded">Risco / Cuidado</span>
+                            </div>
+                            <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-kratos-500 font-bold mt-0.5">●</span>
+                                    <span><strong>Início súbito:</strong> Fisgada aguda durante uma repetição ou dor pontual imediata no treino.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-kratos-500 font-bold mt-0.5">●</span>
+                                    <span><strong>Dor em pontada ou facada:</strong> Localizada em um ponto bem específico ao toque ou na inserção articular.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-kratos-500 font-bold mt-0.5">●</span>
+                                    <span><strong>Sinais inflamatórios visíveis:</strong> Edema (inchaço), calor local intenso ou hematoma roxo visível na pele.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-kratos-500 font-bold mt-0.5">●</span>
+                                    <span><strong>Perda de função:</strong> Incapacidade de apoiar o peso do corpo ou fraqueza motora assimétrica.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- Medical Disclaimer Alert Footer -->
+                    <div class="p-4 sm:p-5 rounded-2xl bg-red-950/40 border border-kratos-600/40 text-xs sm:text-sm text-slate-300 space-y-2">
+                        <div class="flex items-center gap-2 text-red-400 font-bold">
+                            <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                            <span>Aviso de Responsabilidade & Sinais de Urgência:</span>
+                        </div>
+                        <p class="leading-relaxed">
+                            O conteúdo disponibilizado pela Kratos Fit tem caráter puramente educativo e informativo e <strong>não substitui a consulta, diagnóstico ou acompanhamento com médicos ortopedistas, fisioterapeutas ou educadores físicos</strong>. Se você apresentar dor incapacitante contínua, inchaço volumoso, perda de sensibilidade ou <strong>urina com coloração escura (cor de refrigerante/chá preto - sinal de rabdomiólise)</strong>, busque atendimento médico de urgência imediatamente.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==============================================
+             SOBRE A KRATOS FIT & PERGUNTAS FREQUENTES
+        =============================================== -->
+        <section id="sobre" class="py-20 bg-kratos-dark relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+                
+                <!-- About Kratos Fit -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-4 text-center lg:text-left flex flex-col items-center lg:items-start">
+                        <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-kratos-card via-kratos-surface to-black p-3.5 border-2 border-red-500/50 flex items-center justify-center shadow-kratos-glow mb-4">
+                            <!-- Official Logo Emblem -->
+                            <img src="assets/logo-kratos-transparent.png" alt="Logotipo Kratos Fit" class="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(206,32,41,0.55)]">
+                        </div>
+                        <h3 class="font-heading font-black text-2xl text-white">KRATOS FIT</h3>
+                        <p class="text-xs uppercase tracking-widest text-kratos-500 font-bold mt-1">Força Através da Recuperação</p>
+                    </div>
+
+                    <div class="lg:col-span-8 space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+                        <h4 class="font-heading font-bold text-xl text-white">
+                            A nossa missão: Acelerar a sua evolução sem deixar você imobilizado.
+                        </h4>
+                        <p>
+                            A <strong>Kratos Fit</strong> nasceu da convicção de que treinar com intensidade exige recuperar com igual inteligência. Na mitologia e na fisiologia moderna, a verdadeira força reside na capacidade de resistir, reparar os microdanos teciduais e ressurgir mais adaptado.
+                        </p>
+                        <p>
+                            Combinamos tecnologia interativa, pesquisa científica de ponta e protocolos acessíveis para que qualquer pessoa — de quem iniciou na academia ontem ao maratonista experiente — compreenda os sinais do seu próprio corpo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Accordion -->
+                <div class="space-y-4 pt-8 border-t border-kratos-border">
+                    <div class="text-center mb-8">
+                        <h3 class="font-heading font-bold text-2xl sm:text-3xl text-white">Dúvidas Frequentes sobre DOMS</h3>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1">Respostas diretas e sem mitos sobre dor muscular tardia.</p>
+                    </div>
+
+                    <!-- FAQ 1 -->
+                    <div class="faq-item rounded-2xl bg-kratos-card border border-kratos-border overflow-hidden transition">
+                        <button type="button" class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center text-white font-heading font-semibold text-sm sm:text-base focus:outline-none">
+                            <span>O ácido lático é o responsável pela dor do dia seguinte?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-kratos-500 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-slate-300 border-t border-kratos-border/40 pt-3 leading-relaxed">
+                            <strong>Mito desmentido pela ciência!</strong> O lactato produzido durante exercícios anaeróbios intensos retorna aos níveis basais em menos de 60 minutos após o término do treino, sendo metabolizado pelo fígado e pelo coração. A dor muscular tardia (DOMS) é causada por microfissuras ultraestruturais nas linhas Z dos sarcômeros e pela subsequente resposta imune-inflamatória benéfica.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item rounded-2xl bg-kratos-card border border-kratos-border overflow-hidden transition">
+                        <button type="button" class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center text-white font-heading font-semibold text-sm sm:text-base focus:outline-none">
+                            <span>Devo treinar mesmo se ainda estiver sentindo dor?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-kratos-500 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-slate-300 border-t border-kratos-border/40 pt-3 leading-relaxed">
+                            Depende da estratégia: você pode (e deve) manter sua rotina de treinos trabalhando <strong>outro grupo muscular</strong> (por exemplo: treinar membros superiores enquanto as pernas se recuperam). Você também pode realizar um treino de recuperação ativa com cargas muito baixas (menos de 30% de 1RM) para aumentar o aporte de nutrientes. Evite apenas treinar pesado o mesmo músculo que está em pico de dor.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item rounded-2xl bg-kratos-card border border-kratos-border overflow-hidden transition">
+                        <button type="button" class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center text-white font-heading font-semibold text-sm sm:text-base focus:outline-none">
+                            <span>Se eu não sentir dor no dia seguinte, significa que o treino não fez efeito?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-kratos-500 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-slate-300 border-t border-kratos-border/40 pt-3 leading-relaxed">
+                            Não! A dor tardia não é métrica primária de hipertrofia ou ganho de força. Ela reflete apenas a exposição a estímulos mecânicos incomuns ou a predominância de contrações excêntricas. À medida que seu corpo passa pelo "efeito da repetição da carga" (Repeated Bout Effect), ele se torna mais eficiente e você sentirá menos dores, mantendo os ganhos de forma consistente.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-kratos-surface border-t border-kratos-border relative z-20 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-lg bg-kratos-card border border-red-500/40 p-1 flex items-center justify-center shadow-sm">
+                            <img src="assets/logo-kratos-transparent.png" alt="Logotipo Kratos Fit" class="w-full h-full object-contain">
+                        </div>
+                        <span class="font-heading font-black text-lg text-white">KRATOS <span class="text-kratos-500">FIT</span></span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Plataforma de alta performance para manejo, alívio e prevenção da Dor Muscular Tardia (DOMS). Ciência descomplicada para o seu progresso físico contínuo.
+                    </p>
+                </div>
+
+                <!-- Col 2: Ferramentas -->
+                <div class="space-y-2">
+                    <h5 class="font-heading font-bold text-white text-xs uppercase tracking-wider">Ferramentas</h5>
+                    <ul class="space-y-1.5">
+                        <li><a href="#diagnostico" class="hover:text-kratos-500 transition">Kratos Recover™ Wizard</a></li>
+                        <li><a href="#solucoes" class="hover:text-kratos-500 transition">Protocolos de Hidratação</a></li>
+                        <li><a href="#solucoes" class="hover:text-kratos-500 transition">Guia de Liberação Miofascial</a></li>
+                        <li><a href="#seguranca" class="hover:text-kratos-500 transition">Detector de Riscos e Lesões</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Navegação -->
+                <div class="space-y-2">
+                    <h5 class="font-heading font-bold text-white text-xs uppercase tracking-wider">Navegação</h5>
+                    <ul class="space-y-1.5">
+                        <li><a href="#inicio" class="hover:text-kratos-500 transition">Início</a></li>
+                        <li><a href="#diagnostico" class="hover:text-kratos-500 transition">Diagnóstico Rápido</a></li>
+                        <li><a href="#solucoes" class="hover:text-kratos-500 transition">O Que Fazer / Evitar</a></li>
+                        <li><a href="#seguranca" class="hover:text-kratos-500 transition">Segurança Médica</a></li>
+                        <li><a href="#sobre" class="hover:text-kratos-500 transition">Sobre a Marca</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Aviso Legal & Selos -->
+                <div class="space-y-3">
+                    <h5 class="font-heading font-bold text-white text-xs uppercase tracking-wider">Segurança & Ética</h5>
+                    <p class="text-[11px] text-slate-500 leading-normal">
+                        Este site não prescreve tratamentos médicos invasivos nem medicamentos tarjados. Em caso de dor severa acompanhada de febre ou inchaço súbito, procure um médico.
+                    </p>
+                    <div class="flex items-center gap-2 text-slate-400">
+                        <span class="inline-flex items-center gap-1 text-[10px] bg-kratos-card px-2 py-1 rounded border border-kratos-border">
+                            <i data-lucide="shield" class="w-3 h-3 text-emerald-400"></i> Conteúdo Seguro
+                        </span>
+                        <span class="inline-flex items-center gap-1 text-[10px] bg-kratos-card px-2 py-1 rounded border border-kratos-border">
+                            <i data-lucide="sparkles" class="w-3 h-3 text-kratos-500"></i> Kratos Tech 2026
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="border-t border-kratos-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+                <p>&copy; 2026 Kratos Fit. Todos os direitos reservados. Recuperação acelerada baseada em evidências.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-slate-400 transition">Termos de Uso</a>
+                    <a href="#" class="hover:text-slate-400 transition">Política de Privacidade</a>
+                    <a href="#" class="hover:text-slate-400 transition">Suporte Kratos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-kratos-card border border-kratos-500 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3">
+        <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+        <span id="toastMessage" class="text-xs font-bold">Plano copiado com sucesso!</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide Icons on initial DOM load
+        lucide.createIcons();
+    </script>
+</body>
+</html>
